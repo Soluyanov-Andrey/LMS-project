@@ -11,8 +11,12 @@ dist/
 # Файлы окружения (СЕКРЕТЫ!)
 .env
 .env.local
-**/.env*
+**/.env
+**/.env.local
+
+# Но разрешаем шаблоны
 !.env.example
+**/!.env.example
 
 # Логи и временные файлы
 npm-debug.log*
