@@ -1,0 +1,45 @@
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Сборка Next.js и NestJS
+.next/
+dist/
+**/.next/
+**/dist/
+
+# Файлы окружения (СЕКРЕТЫ!)
+.env
+.env.local
+**/.env*
+!.env.example
+
+# Логи и временные файлы
+npm-debug.log*
+yarn-debug.log*
+.DS_Store
+Thumbs.db
+
+# Prisma
+*.db
+*.db-journal
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Build outputs
+build/
+out/
+.next/
+*.tsbuildinfo
