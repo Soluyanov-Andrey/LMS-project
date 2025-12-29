@@ -85,23 +85,21 @@
 git checkout main
 git pull origin main
 
-# 2. Создаем ветку под задачу
-git checkout -b fix(backend)/password-validation
+# 2. Создаем ветку под задачу fix- суть того что делаем, 1 номер в звдвчи password-validation - описание задачи
+git checkout -b fix/1/password-validation
 
-# 3. Делаем правки в коде...
-
-# 4. Проверяем статус и добавляем файлы
+# 3. Проверяем статус и добавляем файлы
 git status
 git add backend/src/auth/dto/register.dto.ts
 
-# 5. Коммитим по стандарту
+# 4. Коммитим по стандарту
 git commit -m "fix(auth): добавлена проверка минимальной длины пароля"
 
-# 6. Возвращаемся в main и сливаем ветку
+# 5. Возвращаемся в main и сливаем ветку
 git checkout main
-git merge fix(backend)/password-validation
+git merge fix/1/password-validation
 
-# 7. Отправляем в облако
+# 6. Отправляем в облако
 git push origin main
 ```
 
