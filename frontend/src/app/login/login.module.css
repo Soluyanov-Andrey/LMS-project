@@ -2,11 +2,11 @@
 
 .container {
   display: flex;
-  min-height: 100vh;
+  min-height: 100dvh; /* Динамическая высота — учитывает панели браузера */
   align-items: center;
   justify-content: center;
-  background-color: #f3f4f6; /* Светло-серый фон */
-  padding: 20px;
+  background-color: #f3f4f6;
+  padding: 16px; /* Чуть уменьшим для мобилок */
 }
 
 .card {
@@ -60,6 +60,8 @@
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
   color: #000;
+  -webkit-appearance: none; /* Убирает внутренние тени на iOS */
+  appearance: none;
 }
 
 .input:focus {
@@ -79,6 +81,9 @@
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
   margin-top: 10px;
+  -webkit-tap-highlight-color: transparent; /* Убирает синюю вспышку при нажатии на мобилках */
+  touch-action: manipulation; /* Ускоряет отклик, убирая задержку перед двойным тапом */
+  user-select: none; /* Предотвращает выделение текста на кнопке при долгом нажатии */
 }
 
 .button:hover {

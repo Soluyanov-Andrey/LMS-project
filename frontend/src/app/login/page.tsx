@@ -14,24 +14,29 @@ export default function LoginPage() {
         <form className={styles.form}>
           <div className={styles.formGroup}>
             <label className={styles.label} htmlFor="email">Email</label>
-            <input 
+           <input 
               className={styles.input} 
               type="email" 
               id="email" 
               placeholder="example@mail.com" 
               required 
+              autoComplete="email"        // Позволяет телефону предложить сохраненные email
+              inputMode="email"           // Сразу открывает клавиатуру с символом "@"
+              autoCapitalize="none"       // Отключает автокапитализацию (чтобы первая буква не была заглавной)
+              spellCheck="false"          // Отключает красное подчеркивание (в почте оно не нужно)
             />
           </div>
 
           <div className={styles.formGroup}>
             <label className={styles.label} htmlFor="password">Пароль</label>
-            <input 
-              className={styles.input} 
-              type="password" 
-              id="password" 
-              placeholder="••••••••" 
-              required 
-            />
+          <input 
+            className={styles.input} 
+            type="password" 
+            id="password" 
+            placeholder="••••••••" 
+            required 
+            autoComplete="current-password" // Важно для менеджеров паролей (FaceID/TouchID)
+          />
           </div>
 
           <button type="button" className={styles.button}>Войти</button>
