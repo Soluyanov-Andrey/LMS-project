@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Вход в аккаунт</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-100 font-display antialiased flex items-center justify-center min-h-screen py-0 sm:py-10">
+<!-- Mobile Device Container -->
+<div class="relative flex h-full w-full sm:max-w-[400px] sm:h-[844px] flex-col bg-background-light dark:bg-background-dark sm:rounded-[40px] overflow-hidden shadow-2xl sm:border-[8px] sm:border-gray-900 ring-1 ring-gray-900/5">
+<!-- Status Bar Placeholder (Visual only) -->
+<div class="h-12 w-full shrink-0"></div>
+<!-- Header -->
+<div class="flex items-center justify-between px-6 pb-2">
+<button class="flex h-10 w-10 items-center justify-center rounded-full text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back_ios_new</span>
+</button>
+<button class="text-sm font-semibold text-primary hover:opacity-80 transition-opacity">
+                Помощь
+            </button>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto px-6 pt-4 pb-8 no-scrollbar">
+<!-- Headline -->
+<div class="mb-8 mt-4">
+<h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight">
+                    Вход в<br/>аккаунт
+                </h1>
+<p class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+                    Введите свои данные для доступа к приложению
+                </p>
+</div>
+<!-- Form -->
+<form class="flex flex-col gap-5">
+<!-- Email Field -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-gray-900 dark:text-gray-200">Email или логин</label>
+<div class="relative group">
+<input class="peer w-full h-14 rounded-2xl border border-gray-200 bg-white px-4 text-base font-normal text-gray-900 outline-none placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-500 transition-all" placeholder="example@mail.com" type="text"/>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 peer-focus:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">mail</span>
+</div>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-gray-900 dark:text-gray-200">Пароль</label>
+<div class="relative group">
+<input class="peer w-full h-14 rounded-2xl border border-gray-200 bg-white px-4 pr-12 text-base font-normal text-gray-900 outline-none placeholder:text-gray-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-500 transition-all" placeholder="Введите пароль" type="password"/>
+<button class="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer outline-none focus:text-primary" type="button">
+<span class="material-symbols-outlined" style="font-size: 20px;">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Forgot Password -->
+<div class="flex justify-end">
+<a class="text-sm font-medium text-primary hover:text-primary/80 transition-colors" href="#">
+                        Забыли пароль?
+                    </a>
+</div>
+<!-- Login Button -->
+<button class="mt-4 flex h-14 w-full items-center justify-center rounded-2xl bg-primary text-base font-bold text-white shadow-lg shadow-primary/30 transition-transform active:scale-[0.98] hover:bg-blue-600" type="button">
+                    Войти
+                </button>
+</form>
+<!-- Divider -->
+<div class="relative my-8">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-gray-200 dark:border-gray-700"></div>
+</div>
+<div class="relative flex justify-center">
+<span class="bg-background-light px-4 text-xs font-medium uppercase text-gray-400 dark:bg-background-dark">или войдите через</span>
+</div>
+</div>
+<!-- Social Actions -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex h-14 items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
+<img alt="Google Logo" class="h-6 w-6" data-alt="Google G logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPoGVIy_wUQWV8HVJT2zbFn1jINt7GCWA5RFxjdsfR-jdlHjETWdHyT8AGJPkypWDheacbaIRWgU-cka6rA81mMNCeJTR4bIZe_d_B0_sg4uT-O8oN0_W-2G_6K6LW2oqeHSsvB7l29Vp0i0eJ1hRMUWzm0OxLXEKEDhQIqqFlUrKxVBVHfNHSJNY0tPmG9et-YJloa76iH_WJR8kU626hP35ULjpHEzyhhRUOL6tyeQYSGIrjlwXcvj_jB1fvdVXHnpMuGzdVewI"/>
+<span class="text-sm font-semibold text-gray-700 dark:text-white">Google</span>
+</button>
+<button class="flex h-14 items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-gray-900 dark:text-white" style="font-size: 26px;">ios</span>
+<span class="text-sm font-semibold text-gray-700 dark:text-white">Apple</span>
+</button>
+</div>
+<!-- Spacer to push footer down on large screens -->
+<div class="h-8"></div>
+</div>
+<!-- Footer -->
+<div class="w-full border-t border-gray-200 bg-background-light px-6 py-6 text-center dark:border-gray-800 dark:bg-background-dark">
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                Нет аккаунта?
+                <a class="ml-1 text-primary hover:underline" href="#">Зарегистрироваться</a>
+</p>
+</div>
+<!-- Home Indicator (Visual Only for Phone Form Factor) -->
+<div class="absolute bottom-1 left-1/2 h-1 w-32 -translate-x-1/2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+</div>
+</body></html>
