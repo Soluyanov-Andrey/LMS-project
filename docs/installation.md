@@ -210,3 +210,10 @@ npm run start:dev
 2. Он успешно соединился с твоей PostgreSQL.
 3. Таблицы в базе созданы.
 
+### Настройка jwt для этого ставим пакеты
+npm install @nestjs/jwt passport-jwt
+npm install -D @types/passport-jwt
+
+### По умолчанию NestJS не умеет парсить куки и работать с ними удобно.
+npm install cookie-parser
+npm install -D @types/cookie-parser

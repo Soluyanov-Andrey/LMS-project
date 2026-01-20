@@ -1,51 +1,49 @@
-// src/app/login/page.tsx
-"use client"; // Добавь это, так как формы обычно интерактивны
-
-import Link from 'next/link';
-import styles from './login.module.css';
+'use client';
+import { useState } from 'react';
 
 export default function LoginPage() {
+  const [email, setEmail] = useState('');
+  const [token, setToken] = useState('');
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const res = await fetch('http://192.168.1.115:4000/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      setToken(data.access_token);
+      localStorage.setItem('token', data.access_token);
+      alert('Успешный вход!');
+    } else {
+      alert('Ошибка: ' + data.message);
+    }
+  };
+
   return (
-    <main className={styles.container}>
-      <div className={styles.card}>
-        <h1 className={styles.title}>Вход</h1>
-        <p className={styles.subtitle}>Добро пожаловать в Linear Flow</p>
+    <div style={{ padding: '20px' }}>
+      <h1>Вход</h1>
+      <form onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Введите email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <button type="submit">Войти</button>
+      </form>
 
-        <form className={styles.form}>
-          <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor="email">Email</label>
-           <input 
-              className={styles.input} 
-              type="email" 
-              id="email" 
-              placeholder="example@mail.com" 
-              required 
-              autoComplete="email"        // Позволяет телефону предложить сохраненные email
-              inputMode="email"           // Сразу открывает клавиатуру с символом "@"
-              autoCapitalize="none"       // Отключает автокапитализацию (чтобы первая буква не была заглавной)
-              spellCheck="false"          // Отключает красное подчеркивание (в почте оно не нужно)
-            />
-          </div>
-
-          <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor="password">Пароль</label>
-          <input 
-            className={styles.input} 
-            type="password" 
-            id="password" 
-            placeholder="••••••••" 
-            required 
-            autoComplete="current-password" // Важно для менеджеров паролей (FaceID/TouchID)
-          />
-          </div>
-
-          <button type="button" className={styles.button}>Войти</button>
-        </form>
-
-        <div className={styles.footer}>
-          Нет аккаунта? <Link href="/register" className={styles.link}>Зарегистрироваться</Link>
+      {token && (
+        <div style={{ marginTop: '20px', wordBreak: 'break-all' }}>
+          <strong>Твой JWT:</strong> <p>{token}</p>
         </div>
-      </div>
-    </main>
+      )}
+    </div>
   );
 }
