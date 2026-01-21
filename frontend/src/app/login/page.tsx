@@ -1,10 +1,11 @@
 'use client';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'; 
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [token, setToken] = useState('');
-
+  const router = useRouter(); // 2. Инициализируем роутер здесь
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -12,6 +13,7 @@ export default function LoginPage() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
+      credentials: 'include', // ВАЖНО для кук
     });
 
     const data = await res.json();
@@ -19,7 +21,9 @@ export default function LoginPage() {
     if (res.ok) {
       setToken(data.access_token);
       localStorage.setItem('token', data.access_token);
-      alert('Успешный вход!');
+      router.push('/dashboard'); 
+      router.refresh(); // Обновляем состояние, чтобы middleware сработал
+
     } else {
       alert('Ошибка: ' + data.message);
     }

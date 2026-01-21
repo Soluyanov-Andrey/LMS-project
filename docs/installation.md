@@ -217,3 +217,12 @@ npm install -D @types/passport-jwt
 ### По умолчанию NestJS не умеет парсить куки и работать с ними удобно.
 npm install cookie-parser
 npm install -D @types/cookie-parser
+
+### Ошибка была 
+**TypeScript просит импортировать Request и Response либо как типы, либо через namespace. Самый надежный способ для NestJS — это import type или использование имен из пространства express.
+Почему это произошло?
+
+Когда включен параметр emitDecoratorMetadata, TypeScript пытается сохранить информацию о типах аргументов функции, чтобы NestJS мог использовать их в рантайме. Если тип (например, Response) импортирован просто так, компилятор путается, является ли это реальным классом или просто описанием типа. import type или namespace импорты решают эту проблему.
+Установил
+
+npm install @nestjs/passport passport
