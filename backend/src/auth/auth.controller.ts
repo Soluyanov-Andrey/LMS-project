@@ -25,9 +25,9 @@ export class AuthController {
     return { message: 'Успешный вход' };
   }
 
-  @UseGuards(AuthGuard('jwt'))
-  @Get('me')
-  getMe(@Req() req: Request) { // И здесь ошибки не будет
-    return req.user;
-  }
+  // @UseGuards(AuthGuard('jwt'))
+  // @Get('me')
+  // getMe(@Req() req: Request) { // И здесь ошибки не будет
+  //   return req.user;
+  // }
 }

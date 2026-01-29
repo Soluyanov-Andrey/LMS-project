@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma/prisma.service'; // Предполагается, что PrismaService уже создан
-
+ 
 @Injectable()
 export class AuthService {
   constructor(
